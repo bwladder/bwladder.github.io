@@ -7,19 +7,14 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
       font-family: 'Space Grotesk', sans-serif;
       color: white;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
       position: relative;
       z-index: 1;
-      min-height: 100vh;
-      overflow-x: hidden;
     }
 
     /* Video background */
@@ -27,29 +22,10 @@
       position: fixed;
       top: 0;
       left: 0;
-      min-width: 100vw;
-      min-height: 100vh;
+      width: 100vw;
+      height: 100vh;
       object-fit: cover;
       z-index: -1;
-    }
-
-    /* Transparent Navbar */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 2rem;
-      background: transparent;
-    }
-
-    /* Fade animation */
-    body.fade-in {
-      animation: fadeIn 1s ease-in-out forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
     }
 
     /* Glassmorphic card style */
@@ -68,18 +44,18 @@
     }
   </style>
 </head>
-<body class="fade-in">
+<body>
 
   <!-- Video Background -->
-  <video autoplay muted loop id="video-bg">
-    <source src="https://motionbgs.com/media/6199/coffee-shop.960x540.mp4" type="video/mp4">
+  <video autoplay muted loop id="video-bg" playsinline>
+    <source src="https://motionbgs.com/media/6199/coffee-shop.960x540.mp4" type="video/mp4" />
     Your browser does not support HTML5 video.
   </video>
 
   <!-- Navbar -->
-  <nav>
-    <h1 class="text-3xl font-bold">LADDER</h1>
-    <ul class="flex gap-6 text-lg">
+  <nav class="flex justify-between items-center px-6 py-4 md:px-12 md:py-6 bg-transparent">
+    <h1 class="text-2xl md:text-3xl font-bold">LADDER</h1>
+    <ul class="flex gap-5 md:gap-8 text-base md:text-lg">
       <li><a href="index.html" class="hover:text-purple-400 transition">Home</a></li>
       <li><a href="team.html" class="hover:text-purple-400 transition">Team</a></li>
       <li><a href="contact.html" class="hover:text-purple-400 transition">Contact</a></li>
@@ -87,36 +63,61 @@
   </nav>
 
   <!-- Hero -->
-  <section class="text-center py-24 px-6">
-    <h2 class="text-4xl font-bold mb-4">We Build Brands for the Future</h2>
-    <p class="text-lg text-zinc-200">Creative. Strategic. Digital.</p>
+  <section class="text-center px-6 py-20 md:py-28 max-w-4xl mx-auto">
+    <h2 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">We Build Brands for the Future</h2>
+    <p class="text-base md:text-lg text-zinc-200 max-w-xl mx-auto">Creative. Strategic. Digital.</p>
   </section>
 
-  <!-- 6 Promotional Blocks with Glassmorphism -->
-  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6 pb-20 max-w-7xl mx-auto">
-    <div class="glass-card p-6 rounded-lg shadow-lg">
-      <h3 class="text-xl font-semibold text-purple-400 mb-2">Social Media Strategy</h3>
-      <p class="text-zinc-100">We create viral strategies to grow your audience.</p>
+  <!-- Promotional Blocks -->
+  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6 max-w-7xl mx-auto mb-16">
+    <div class="glass-card p-5 sm:p-6 rounded-lg">
+      <h3 class="text-lg sm:text-xl font-semibold text-purple-400 mb-2">Social Media Strategy</h3>
+      <p class="text-zinc-100 text-sm sm:text-base">We create viral strategies to grow your audience.</p>
     </div>
-    <div class="glass-card p-6 rounded-lg shadow-lg">
-      <h3 class="text-xl font-semibold text-purple-400 mb-2">Website Development</h3>
-      <p class="text-zinc-100">Build responsive, beautiful websites that convert.</p>
+    <div class="glass-card p-5 sm:p-6 rounded-lg">
+      <h3 class="text-lg sm:text-xl font-semibold text-purple-400 mb-2">Website Development</h3>
+      <p class="text-zinc-100 text-sm sm:text-base">Build responsive, beautiful websites that convert.</p>
     </div>
-    <div class="glass-card p-6 rounded-lg shadow-lg">
-      <h3 class="text-xl font-semibold text-purple-400 mb-2">Influencer Marketing</h3>
-      <p class="text-zinc-100">Collaborate with creators to skyrocket your brand.</p>
+    <div class="glass-card p-5 sm:p-6 rounded-lg">
+      <h3 class="text-lg sm:text-xl font-semibold text-purple-400 mb-2">Influencer Marketing</h3>
+      <p class="text-zinc-100 text-sm sm:text-base">Collaborate with creators to skyrocket your brand.</p>
     </div>
-    <div class="glass-card p-6 rounded-lg shadow-lg">
-      <h3 class="text-xl font-semibold text-purple-400 mb-2">SEO Optimization</h3>
-      <p class="text-zinc-100">Rank higher and be seen on Google search.</p>
+    <div class="glass-card p-5 sm:p-6 rounded-lg">
+      <h3 class="text-lg sm:text-xl font-semibold text-purple-400 mb-2">SEO Optimization</h3>
+      <p class="text-zinc-100 text-sm sm:text-base">Rank higher and be seen on Google search.</p>
     </div>
-    <div class="glass-card p-6 rounded-lg shadow-lg">
-      <h3 class="text-xl font-semibold text-purple-400 mb-2">Brand Identity</h3>
-      <p class="text-zinc-100">We design logos, color palettes, and style guides.</p>
+    <div class="glass-card p-5 sm:p-6 rounded-lg">
+      <h3 class="text-lg sm:text-xl font-semibold text-purple-400 mb-2">Brand Identity</h3>
+      <p class="text-zinc-100 text-sm sm:text-base">We design logos, color palettes, and style guides.</p>
     </div>
-    <div class="glass-card p-6 rounded-lg shadow-lg">
-      <h3 class="text-xl font-semibold text-purple-400 mb-2">Campaign Analytics</h3>
-      <p class="text-zinc-100">Track growth and tweak campaigns in real-time.</p>
+    <div class="glass-card p-5 sm:p-6 rounded-lg">
+      <h3 class="text-lg sm:text-xl font-semibold text-purple-400 mb-2">Campaign Analytics</h3>
+      <p class="text-zinc-100 text-sm sm:text-base">Track growth and tweak campaigns in real-time.</p>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="max-w-4xl mx-auto px-6 mb-20">
+    <div class="glass-card p-8 sm:p-10 text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-6">BUILD WITH LADDER</h2>
+      <p class="text-sm sm:text-base text-zinc-100 mb-8 max-w-xl mx-auto">
+        LADDER was started by two passionate entrepreneurs who dreamt of creating something big and bold.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <a href="https://www.linkedin.com/in/ayan-khan-64b83027b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
+           target="_blank" 
+           class="glass-card p-5 sm:p-6 text-left rounded-lg block hover:scale-105 transition-transform duration-300">
+          <h3 class="text-xl sm:text-2xl font-semibold text-purple-400 mb-1">Ayan Khan</h3>
+          <p class="text-zinc-200 text-sm sm:text-base">Founder & Visionary</p>
+        </a>
+
+        <a href="https://www.linkedin.com/in/afzal-k-739898263?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
+           target="_blank" 
+           class="glass-card p-5 sm:p-6 text-left rounded-lg block hover:scale-105 transition-transform duration-300">
+          <h3 class="text-xl sm:text-2xl font-semibold text-purple-400 mb-1">Afzal Khan</h3>
+          <p class="text-zinc-200 text-sm sm:text-base">Co-Founder & Strategist</p>
+        </a>
+      </div>
     </div>
   </section>
 
