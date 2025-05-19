@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LADDER – Home</title>
+  <title>LADDER – Home & Contact</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
@@ -15,6 +15,8 @@
       padding: 0;
       position: relative;
       z-index: 1;
+      overflow-x: hidden;
+      background-color: #000; /* fallback */
     }
 
     /* Video background */
@@ -26,6 +28,63 @@
       height: 100vh;
       object-fit: cover;
       z-index: -1;
+      opacity: 0.8;
+      animation: fadeInVideo 2s ease forwards;
+    }
+
+    @keyframes fadeInVideo {
+      from {opacity: 0;}
+      to {opacity: 0.8;}
+    }
+
+    /* Transparent Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background: transparent;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      animation: navSlideDown 1s ease forwards;
+    }
+
+    @keyframes navSlideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    nav ul a {
+      transition: color 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+      position: relative;
+      opacity: 0;
+      animation: navLinkFadeIn 0.5s forwards;
+    }
+    nav ul a:nth-child(1) { animation-delay: 1.2s; }
+    nav ul a:nth-child(2) { animation-delay: 1.4s; }
+    nav ul a:nth-child(3) { animation-delay: 1.6s; }
+    nav ul a:hover {
+      color: #7c3aed;
+      transform: scale(1.1);
+    }
+
+    @keyframes navLinkFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
     }
 
     /* Glassmorphic card style */
@@ -36,11 +95,134 @@
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       border: 1px solid rgba(255, 255, 255, 0.18);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
     }
 
     .glass-card:hover {
       transform: scale(1.05);
+      box-shadow: 0 16px 48px rgba(124, 58, 237, 0.5);
+    }
+
+    /* Fade in up animation for cards */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Delay each card fade in */
+    section.grid > div:nth-child(1) { animation-delay: 1.5s; }
+    section.grid > div:nth-child(2) { animation-delay: 1.7s; }
+    section.grid > div:nth-child(3) { animation-delay: 1.9s; }
+    section.grid > div:nth-child(4) { animation-delay: 2.1s; }
+    section.grid > div:nth-child(5) { animation-delay: 2.3s; }
+    section.grid > div:nth-child(6) { animation-delay: 2.5s; }
+
+    /* Form input styling */
+    input, textarea {
+      background: rgba(0,0,0,0.3);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 16px;
+      width: 100%;
+      font-size: 1rem;
+      transition: box-shadow 0.3s ease;
+      outline: none;
+      opacity: 0;
+      animation: fadeInInput 1s ease forwards;
+    }
+    input:focus, textarea:focus {
+      box-shadow: 0 0 8px 2px #7c3aed; /* purple glow */
+    }
+
+    @keyframes fadeInInput {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+    }
+
+    /* Add delay for each form input */
+    form input:nth-child(1) { animation-delay: 2.8s; }
+    form input:nth-child(2) { animation-delay: 3s; }
+    form input:nth-child(3) { animation-delay: 3.2s; }
+    form textarea { animation-delay: 3.4s; }
+
+    button {
+      background-color: #7c3aed;
+      color: white;
+      font-weight: 600;
+      padding: 12px;
+      border-radius: 8px;
+      width: 100%;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      border: none;
+      opacity: 0;
+      animation: fadeInButton 1s ease forwards;
+      animation-delay: 3.6s;
+    }
+    button:hover {
+      background-color: #5b21b6;
+      transform: scale(1.05);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes fadeInButton {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+    }
+
+    /* Pulse animation for button on hover */
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.7);
+      }
+      50% {
+        box-shadow: 0 0 12px 8px rgba(124, 58, 237, 0);
+      }
+    }
+
+    /* Hero fade in */
+    #home h2, #home p {
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+    }
+    #home h2 {
+      animation-delay: 1.2s;
+    }
+    #home p {
+      animation-delay: 1.4s;
+    }
+
+    /* Team section fade in */
+    #team .glass-card {
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: 2s;
+    }
+
+    /* Team member cards hover scale */
+    #team a.glass-card:hover {
+      box-shadow: 0 16px 48px rgba(124, 58, 237, 0.5);
     }
   </style>
 </head>
@@ -53,17 +235,17 @@
   </video>
 
   <!-- Navbar -->
-  <nav class="flex justify-between items-center px-6 py-4 md:px-12 md:py-6 bg-transparent">
+  <nav>
     <h1 class="text-2xl md:text-3xl font-bold">LADDER</h1>
     <ul class="flex gap-5 md:gap-8 text-base md:text-lg">
-      <li><a href="index.html" class="hover:text-purple-400 transition">Home</a></li>
-      <li><a href="team.html" class="hover:text-purple-400 transition">Team</a></li>
-      <li><a href="contact.html" class="hover:text-purple-400 transition">Contact</a></li>
+      <li><a href="#home" class="hover:text-purple-400 transition">Home</a></li>
+      <li><a href="#team" class="hover:text-purple-400 transition">Team</a></li>
+      <li><a href="#contact" class="hover:text-purple-400 transition">Contact</a></li>
     </ul>
   </nav>
 
   <!-- Hero -->
-  <section class="text-center px-6 py-20 md:py-28 max-w-4xl mx-auto">
+  <section id="home" class="text-center px-6 py-20 md:py-28 max-w-4xl mx-auto">
     <h2 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">We Build Brands for the Future</h2>
     <p class="text-base md:text-lg text-zinc-200 max-w-xl mx-auto">Creative. Strategic. Digital.</p>
   </section>
@@ -97,7 +279,7 @@
   </section>
 
   <!-- Team Section -->
-  <section class="max-w-4xl mx-auto px-6 mb-20">
+  <section id="team" class="max-w-4xl mx-auto px-6 mb-20">
     <div class="glass-card p-8 sm:p-10 text-center">
       <h2 class="text-2xl sm:text-3xl font-bold mb-6">BUILD WITH LADDER</h2>
       <p class="text-sm sm:text-base text-zinc-100 mb-8 max-w-xl mx-auto">
@@ -121,5 +303,16 @@
     </div>
   </section>
 
-</body>
-</html>
+ 
+      <!-- Contact Form Section -->
+      <section id="contact" class="max-w-xl mx-auto mt-20 p-10 glass-card shadow-lg mb-20">
+        <h2 class="text-3xl font-bold mb-6 text-center text-purple-400">Get in Touch</h2>
+        <form action="https://formspree.io/f/mjkyzyad" method="POST" class="space-y-6">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="_replyto" placeholder="Your Email" required />
+          <input type="text" name="subject" placeholder="Subject" />
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+      
