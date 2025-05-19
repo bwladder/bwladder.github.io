@@ -1,31 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title> LADDER – Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LADDER – Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
-  
-  <style>{
-    opacity: 0;
-    transition: opacity 0.6s ease-in-out;
-  }
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  body.fade-in {
-    opacity: 1;
-  }
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      color: white;
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-  .fade-out {
-    opacity: 0;
-  }
-  
+    /* Video background */
+    #video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100vw;
+      min-height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* Transparent Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background: transparent;
+    }
+
+    /* Fade animation */
+    body.fade-in {
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Glassmorphic card style */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      transition: transform 0.3s ease;
+    }
+
+    .glass-card:hover {
+      transform: scale(1.05);
+    }
   </style>
 </head>
-<body class="bg-gradient-to-br from-zinc-900 to-zinc-800 text-white">
+<body class="fade-in">
+
+  <!-- Video Background -->
+  <video autoplay muted loop id="video-bg">
+    <source src="https://motionbgs.com/media/6199/coffee-shop.960x540.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+
   <!-- Navbar -->
-  <nav class="flex justify-between items-center p-6">
+  <nav>
     <h1 class="text-3xl font-bold">LADDER</h1>
     <ul class="flex gap-6 text-lg">
       <li><a href="index.html" class="hover:text-purple-400 transition">Home</a></li>
@@ -35,37 +87,38 @@
   </nav>
 
   <!-- Hero -->
-  <section class="text-center py-24 px-6 animate-fade-up">
+  <section class="text-center py-24 px-6">
     <h2 class="text-4xl font-bold mb-4">We Build Brands for the Future</h2>
-    <p class="text-lg text-zinc-300">Creative. Strategic. Growth.</p>
+    <p class="text-lg text-zinc-200">Creative. Strategic. Digital.</p>
   </section>
 
-  <!-- 6 Promotional Blocks -->
-  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6 pb-20 max-w-7xl mx-auto animate-fade-up">
-    <div class="bg-zinc-800 p-6 rounded-lg shadow-lg hover:scale-105 transition transform duration-300">
+  <!-- 6 Promotional Blocks with Glassmorphism -->
+  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6 pb-20 max-w-7xl mx-auto">
+    <div class="glass-card p-6 rounded-lg shadow-lg">
       <h3 class="text-xl font-semibold text-purple-400 mb-2">Social Media Strategy</h3>
-      <p class="text-zinc-300">We create viral strategies to grow your audience.</p>
+      <p class="text-zinc-100">We create viral strategies to grow your audience.</p>
     </div>
-    <div class="bg-zinc-800 p-6 rounded-lg shadow-lg hover:scale-105 transition transform duration-300">
+    <div class="glass-card p-6 rounded-lg shadow-lg">
       <h3 class="text-xl font-semibold text-purple-400 mb-2">Website Development</h3>
-      <p class="text-zinc-300">Build responsive, beautiful websites that convert.</p>
+      <p class="text-zinc-100">Build responsive, beautiful websites that convert.</p>
     </div>
-    <div class="bg-zinc-800 p-6 rounded-lg shadow-lg hover:scale-105 transition transform duration-300">
+    <div class="glass-card p-6 rounded-lg shadow-lg">
       <h3 class="text-xl font-semibold text-purple-400 mb-2">Influencer Marketing</h3>
-      <p class="text-zinc-300">Collaborate with creators to skyrocket your brand.</p>
+      <p class="text-zinc-100">Collaborate with creators to skyrocket your brand.</p>
     </div>
-    <div class="bg-zinc-800 p-6 rounded-lg shadow-lg hover:scale-105 transition transform duration-300">
+    <div class="glass-card p-6 rounded-lg shadow-lg">
       <h3 class="text-xl font-semibold text-purple-400 mb-2">SEO Optimization</h3>
-      <p class="text-zinc-300">Rank higher and be seen on Google search.</p>
+      <p class="text-zinc-100">Rank higher and be seen on Google search.</p>
     </div>
-    <div class="bg-zinc-800 p-6 rounded-lg shadow-lg hover:scale-105 transition transform duration-300">
+    <div class="glass-card p-6 rounded-lg shadow-lg">
       <h3 class="text-xl font-semibold text-purple-400 mb-2">Brand Identity</h3>
-      <p class="text-zinc-300">We design logos, color palettes, and style guides.</p>
+      <p class="text-zinc-100">We design logos, color palettes, and style guides.</p>
     </div>
-    <div class="bg-zinc-800 p-6 rounded-lg shadow-lg hover:scale-105 transition transform duration-300">
+    <div class="glass-card p-6 rounded-lg shadow-lg">
       <h3 class="text-xl font-semibold text-purple-400 mb-2">Campaign Analytics</h3>
-      <p class="text-zinc-300">Track growth and tweak campaigns in real-time.</p>
+      <p class="text-zinc-100">Track growth and tweak campaigns in real-time.</p>
     </div>
   </section>
+
 </body>
 </html>
