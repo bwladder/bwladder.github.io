@@ -1,34 +1,114 @@
-<!-- contact.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact – LADDER</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Space Grotesk', sans-serif;
+      color: white;
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
-    @keyframes fade-in {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+
+    /* Video background */
+    #video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100vw;
+      min-height: 100vh;
+      object-fit: cover;
+      z-index: -1;
     }
-    .animate-fade-in {
-      animation: fade-in 0.6s ease-out both;
+
+    /* Transparent Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background: transparent;
+    }
+
+    /* Fade animation */
+    body.fade-in {
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Glassmorphic card style */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      transition: transform 0.3s ease;
+    }
+
+    .glass-card:hover {
+      transform: scale(1.05);
+    }
+
+    /* Form input styling */
+    input, textarea {
+      background: rgba(0,0,0,0.3);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 16px;
+      width: 100%;
+      font-size: 1rem;
+      transition: box-shadow 0.3s ease;
+      outline: none;
+    }
+    input:focus, textarea:focus {
+      box-shadow: 0 0 8px 2px #7c3aed; /* purple glow */
+    }
+
+    button {
+      background-color: #7c3aed;
+      color: white;
+      font-weight: 600;
+      padding: 12px;
+      border-radius: 8px;
+      width: 100%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      border: none;
+    }
+    button:hover {
+      background-color: #5b21b6;
     }
   </style>
 </head>
-<body class="bg-gradient-to-br from-zinc-900 to-zinc-800 text-white animate-fade-in">
+<body class="fade-in">
+
+  <!-- Video Background -->
+  <video autoplay muted loop id="video-bg">
+    <source src="https://motionbgs.com/media/6199/coffee-shop.960x540.mp4" type="video/mp4" />
+    Your browser does not support HTML5 video.
+  </video>
+
   <!-- Navbar -->
-  <nav class="flex justify-between items-center p-6">
+  <nav>
     <h1 class="text-3xl font-bold">LADDER</h1>
     <ul class="flex gap-6 text-lg">
       <li><a href="index.html" class="hover:text-purple-400 transition">Home</a></li>
@@ -37,16 +117,17 @@
     </ul>
   </nav>
 
-  <!-- Contact Form -->
-  <section class="max-w-xl mx-auto mt-20 bg-zinc-700 p-10 rounded-lg shadow-lg">
-    <h2 class="text-3xl font-bold mb-6 text-center">Get in Touch</h2>
+  <!-- Contact Form Section -->
+  <section class="max-w-xl mx-auto mt-20 p-10 glass-card shadow-lg">
+    <h2 class="text-3xl font-bold mb-6 text-center text-purple-400">Get in Touch</h2>
     <form action="https://formspree.io/f/mjkyzyad" method="POST" class="space-y-6">
-      <input type="text" name="name" placeholder="Your Name" required class="w-full p-3 rounded bg-zinc-800 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"/>
-      <input type="email" name="email" placeholder="Your Email" required class="w-full p-3 rounded bg-zinc-800 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"/>
-      <input type="text" name="phone" placeholder="Your Phone Number" class="w-full p-3 rounded bg-zinc-800 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"/>
-      <textarea name="message" placeholder="Your Message" rows="4" required class="w-full p-3 rounded bg-zinc-800 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
-      <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 transition p-3 rounded text-white font-semibold">Send</button>
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="text" name="phone" placeholder="Your Phone Number" />
+      <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit">Send</button>
     </form>
   </section>
+
 </body>
 </html>
