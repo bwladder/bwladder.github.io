@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Glassmorphic Landing Page</title>
+  <title>LADDER | Projects</title>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
   <style>
     /* Global styling */
@@ -14,7 +14,7 @@
       color: #f1f1f1;
       opacity: 0;
       transition: opacity 0.6s ease-in-out;
-      background: #000; /* fallback */
+      background: #000;
     }
     body.fade-in {
       opacity: 1;
@@ -31,15 +31,12 @@
       z-index: -1;
     }
 
-    /* Navbar */
+    /* Navbar (no background) */
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1.5rem 2rem;
-      background: rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
     }
     nav h1 {
       font-size: 2rem;
@@ -59,7 +56,7 @@
       transition: color 0.3s ease;
     }
     nav a:hover {
-      color: #a78bfa; /* purple-400 */
+      color: #a78bfa;
     }
 
     /* Hero Section */
@@ -75,7 +72,7 @@
     }
     .hero p {
       font-size: 1.125rem;
-      color: #d1d5db; /* zinc-300 */
+      color: #d1d5db;
     }
 
     /* Cards Section */
@@ -108,12 +105,12 @@
     }
     .glass-card h3 {
       font-size: 1.25rem;
-      color: #a78bfa; /* purple-400 */
+      color: #a78bfa;
       margin-bottom: 0.5rem;
     }
     .glass-card p {
       font-size: 1rem;
-      color: #e5e7eb; /* zinc-200 */
+      color: #e5e7eb;
     }
   </style>
 </head>
@@ -150,6 +147,10 @@
     <div class="glass-card">
       <h3>DTC Scheduling</h3>
       <p>AI-powered automation for public transport route planning and efficiency.</p>
+    </div>
+    <div class="glass-card">
+      <h3>Our Team</h3>
+      <p>A passionate group of developers, designers, and thinkers bringing innovation to life at LADDER.</p>
     </div>
   </section>
 
