@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,10 +16,9 @@
       position: relative;
       z-index: 1;
       overflow-x: hidden;
-      background-color: #000; /* fallback */
+      background-color: #000;
     }
 
- /* Video background */
     #video-bg {
       position: fixed;
       top: 0;
@@ -31,12 +30,12 @@
       opacity: 0.8;
       animation: fadeInVideo 2s ease forwards;
     }
+
     @keyframes fadeInVideo {
       from {opacity: 0;}
       to {opacity: 0.8;}
     }
 
-    /* Transparent Navbar */
     nav {
       display: flex;
       justify-content: space-between;
@@ -67,26 +66,21 @@
       opacity: 0;
       animation: navLinkFadeIn 0.5s forwards;
     }
+
     nav ul a:nth-child(1) { animation-delay: 1.2s; }
     nav ul a:nth-child(2) { animation-delay: 1.4s; }
     nav ul a:nth-child(3) { animation-delay: 1.6s; }
+
     nav ul a:hover {
       color: #7c3aed;
       transform: scale(1.1);
     }
 
     @keyframes navLinkFadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
+      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(-10px); }
     }
 
-    /* Glassmorphic card style */
     .glass-card {
       background: rgba(255, 255, 255, 0.1);
       border-radius: 15px;
@@ -104,19 +98,11 @@
       box-shadow: 0 16px 48px rgba(124, 58, 237, 0.5);
     }
 
-    /* Fade in up animation for cards */
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Delay each card fade in */
     section.grid > div:nth-child(1) { animation-delay: 1.5s; }
     section.grid > div:nth-child(2) { animation-delay: 1.7s; }
     section.grid > div:nth-child(3) { animation-delay: 1.9s; }
@@ -124,7 +110,6 @@
     section.grid > div:nth-child(5) { animation-delay: 2.3s; }
     section.grid > div:nth-child(6) { animation-delay: 2.5s; }
 
-    /* Form input styling */
     input, textarea {
       background: rgba(0,0,0,0.3);
       color: white;
@@ -138,22 +123,16 @@
       opacity: 0;
       animation: fadeInInput 1s ease forwards;
     }
+
     input:focus, textarea:focus {
-      box-shadow: 0 0 8px 2px #7c3aed; /* purple glow */
+      box-shadow: 0 0 8px 2px #7c3aed;
     }
 
     @keyframes fadeInInput {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
+      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(20px); }
     }
 
-    /* Add delay for each form input */
     form input:nth-child(1) { animation-delay: 2.8s; }
     form input:nth-child(2) { animation-delay: 3s; }
     form input:nth-child(3) { animation-delay: 3.2s; }
@@ -173,6 +152,7 @@
       animation: fadeInButton 1s ease forwards;
       animation-delay: 3.6s;
     }
+
     button:hover {
       background-color: #5b21b6;
       transform: scale(1.05);
@@ -180,46 +160,29 @@
     }
 
     @keyframes fadeInButton {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
+      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(20px); }
     }
 
-    /* Pulse animation for button on hover */
     @keyframes pulse {
-      0%, 100% {
-        box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.7);
-      }
-      50% {
-        box-shadow: 0 0 12px 8px rgba(124, 58, 237, 0);
-      }
+      0%, 100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.7); }
+      50% { box-shadow: 0 0 12px 8px rgba(124, 58, 237, 0); }
     }
 
-    /* Hero fade in */
     #home h2, #home p {
       opacity: 0;
       animation: fadeInUp 1s ease forwards;
     }
-    #home h2 {
-      animation-delay: 1.2s;
-    }
-    #home p {
-      animation-delay: 1.4s;
-    }
 
-    /* Team section fade in */
+    #home h2 { animation-delay: 1.2s; }
+    #home p { animation-delay: 1.4s; }
+
     #team .glass-card {
       opacity: 0;
       animation: fadeInUp 1s ease forwards;
       animation-delay: 2s;
     }
 
-    /* Team member cards hover scale */
     #team a.glass-card:hover {
       box-shadow: 0 16px 48px rgba(124, 58, 237, 0.5);
     }
@@ -227,7 +190,6 @@
 </head>
 <body>
 
-  <!-- Video Background -->
   <!-- Video Background -->
   <video autoplay muted loop id="video-bg" playsinline>
     <source src="https://motionbgs.com/media/7713/wicked-grace.960x540.mp4" />
@@ -238,19 +200,19 @@
   <nav>
     <h1 class="text-2xl md:text-3xl font-bold">LADDER</h1>
     <ul class="flex gap-5 md:gap-8 text-base md:text-lg">
-      <li><a href="#home" class="hover:text-purple-400 transition">Home</a></li>
-      <li><a href="#team" class="hover:text-purple-400 transition">Team</a></li>
-      <li><a href="#contact" class="hover:text-purple-400 transition">Contact</a></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- Hero -->
+  <!-- Hero Section -->
   <section id="home" class="text-center px-6 py-20 md:py-28 max-w-4xl mx-auto">
     <h2 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">We Build Brands for the Future</h2>
     <p class="text-base md:text-lg text-zinc-200 max-w-xl mx-auto">Creative. Strategic. Digital.</p>
   </section>
 
-  <!-- Promotional Blocks -->
+  <!-- Services -->
   <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6 max-w-7xl mx-auto mb-16">
     <div class="glass-card p-5 sm:p-6 rounded-lg">
       <h3 class="text-lg sm:text-xl font-semibold text-purple-400 mb-2">Social Media Strategy</h3>
@@ -283,38 +245,36 @@
     <div class="glass-card p-8 sm:p-10 text-center">
       <h2 class="text-2xl sm:text-3xl font-bold mb-6">BUILD WITH LADDER</h2>
       <p class="text-sm sm:text-base text-zinc-100 mb-8 max-w-xl mx-auto">
-        LADDER was started by two passionate entrepreneurs who dreamt of creating something big and bold.
+        LADDER was started by two passionate entrepreneurs who believe in the power of branding and digital storytelling. Meet the team behind the vision.
       </p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <a href="https://www.linkedin.com/in/ayan-khan-64b83027b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
-           target="_blank" 
-           class="glass-card p-5 sm:p-6 text-left rounded-lg block hover:scale-105 transition-transform duration-300">
-          <h3 class="text-xl sm:text-2xl font-semibold text-purple-400 mb-1">Ayan Khan</h3>
-          <p class="text-zinc-200 text-sm sm:text-base">Founder & Visionary</p>
-        </a>
-
-        <a href="https://www.linkedin.com/in/afzal-k-739898263?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
-           target="_blank" 
-           class="glass-card p-5 sm:p-6 text-left rounded-lg block hover:scale-105 transition-transform duration-300">
-          <h3 class="text-xl sm:text-2xl font-semibold text-purple-400 mb-1">Afzal Khan</h3>
-          <p class="text-zinc-200 text-sm sm:text-base">Co-Founder & Strategist</p>
-        </a>
+      <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+        <div class="text-center">
+          <img src="https://via.placeholder.com/100" class="rounded-full mx-auto mb-2" alt="Co-founder 1" />
+          <h3 class="font-semibold text-purple-400">Yamish Sharma</h3>
+          <p class="text-sm text-zinc-200">Co-Founder & Strategist</p>
+        </div>
+        <div class="text-center">
+          <img src="https://via.placeholder.com/100" class="rounded-full mx-auto mb-2" alt="Co-founder 2" />
+          <h3 class="font-semibold text-purple-400">Aryan Singh</h3>
+          <p class="text-sm text-zinc-200">Co-Founder & Developer</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Form Section -->
-  <section id="contact" class="max-w-xl mx-auto mt-20 p-10 glass-card shadow-lg mb-20">
-    <h2 class="text-3xl font-bold mb-6 text-center text-purple-400">Get in Touch</h2>
-    <form action="https://formspree.io/f/mjkyzyad" method="POST" class="space-y-6">
-      <input type="text" name="name" placeholder="Your Name
-        <!-- Contact Form Section -->
-<section id="contact" class="max-w-xl mx-auto mt-20 p-10 glass-card shadow-lg mb-20">
-  <h2 class="text-3xl font-bold mb-6 text-center text-purple-400">Get in Touch</h2>
-  <form action="https://formspree.io/f/mjkyzyad" method="POST" class="space-y-6">
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
+  <!-- Contact Section -->
+  <section id="contact" class="max-w-xl mx-auto px-6 mb-20">
+    <div class="glass-card p-8 sm:p-10">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-6 text-center">Contact Us</h2>
+      <form action="#" method="POST" class="space-y-4">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <input type="text" name="subject" placeholder="Subject" required />
+        <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+</body>
+</html>
