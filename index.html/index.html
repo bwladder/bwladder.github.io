@@ -8,84 +8,160 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     body {
+      font-family: 'Space Grotesk', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #f1f1f1;
       opacity: 0;
       transition: opacity 0.6s ease-in-out;
-      font-family: 'Space Grotesk', sans-serif;
+      background: #000;
     }
     body.fade-in {
       opacity: 1;
     }
+
+    video.bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    nav h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    nav a {
+      text-decoration: none;
+      color: #e0e0e0;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #a78bfa;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem 3rem;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+    .hero p {
+      font-size: 1.125rem;
+      color: #d1d5db;
+    }
+
+    .cards-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
     .glass-card {
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 15px;
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 20px;
+      padding: 1.5rem;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       transition: transform 0.3s ease;
-      background-image: url('https://i.pinimg.com/736x/58/79/7c/58797c10937ccb7b64ed6205bf7b227b.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      mix-blend-mode: screen;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     }
     .glass-card:hover {
       transform: scale(1.05);
     }
+    .glass-card h3 {
+      font-size: 1.25rem;
+      color: #a78bfa;
+      margin-bottom: 0.5rem;
+    }
+    .glass-card p {
+      font-size: 1rem;
+      color: #e5e7eb;
+    }
   </style>
 </head>
-<body class="text-white fade-in relative overflow-hidden">
+<body class="fade-in">
 
-  <!-- Background Video -->
-  <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
-    <source src="https://motionbgs.com/media/6199/coffee-shop.960x540.mp4" type="video/mp4" />
+  <!-- Video Background -->
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="https://motionbgs.com/media/6199/coffee-shop.960x540.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 
   <!-- Navbar -->
-  <nav class="flex justify-between items-center p-6 relative z-10">
-    <h1 class="text-3xl font-bold">LADDER</h1>
-    <ul class="flex gap-6 text-lg">
-      <li><a href="index.html" class="hover:text-purple-400 transition">Home</a></li>
-      <li><a href="team.html" class="hover:text-purple-400 transition">Team</a></li>
-      <li><a href="contact.html" class="hover:text-purple-400 transition">Contact</a></li>
+  <nav>
+    <h1>LADDER</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- Hero -->
-  <section class="text-center py-24 px-6 animate-fade-up relative z-10">
-    <h2 class="text-4xl font-bold mb-4">We Build Brands for the Future</h2>
-    <p class="text-lg text-zinc-300">Creative. Strategic. Digital.</p>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>We Build Brands for the Future</h2>
+    <p>Creative. Strategic. Digital.</p>
   </section>
 
-  <!-- 6 Promotional Blocks with Glassmorphism -->
-  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6 pb-20 max-w-7xl mx-auto animate-fade-up relative z-10">
-    <div class="glass-card p-6 rounded-lg shadow-lg">
-      <h3 class="text-xl font-semibold text-purple-400 mb-2">Social Media Strategy</h3>
-      <p class="text-zinc-300">We create viral strategies to grow your audience.</p>
+  <!-- Promotional Cards -->
+  <section class="cards-container">
+    <div class="glass-card">
+      <h3>Social Media Strategy</h3>
+      <p>We create viral strategies to grow your audience.</p>
     </div>
-    <div class="glass-card p-6 rounded-lg shadow-lg">
-      <h3 class="text-xl font-semibold text-purple-400 mb-2">Website Development</h3>
-      <p class="text-zinc-300">Build responsive, beautiful websites that convert.</p>
+    <div class="glass-card">
+      <h3>Website Development</h3>
+      <p>Build responsive, beautiful websites that convert.</p>
     </div>
-    <div class="glass-card p-6 rounded-lg shadow-lg">
-      <h3 class="text-xl font-semibold text-purple-400 mb-2">Influencer Marketing</h3>
-      <p class="text-zinc-300">Collaborate with creators to skyrocket your brand.</p>
+    <div class="glass-card">
+      <h3>Influencer Marketing</h3>
+      <p>Collaborate with creators to skyrocket your brand.</p>
     </div>
-    <div class="glass-card p-6 rounded-lg shadow-lg">
-      <h3 class="text-xl font-semibold text-purple-400 mb-2">SEO Optimization</h3>
-      <p class="text-zinc-300">Rank higher and be seen on Google search.</p>
+    <div class="glass-card">
+      <h3>SEO Optimization</h3>
+      <p>Rank higher and be seen on Google search.</p>
     </div>
-    <div class="glass-card p-6 rounded-lg shadow-lg">
-      <h3 class="text-xl font-semibold text-purple-400 mb-2">Brand Identity</h3>
-      <p class="text-zinc-300">We design logos, color palettes, and style guides.</p>
+    <div class="glass-card">
+      <h3>Brand Identity</h3>
+      <p>We design logos, color palettes, and style guides.</p>
     </div>
-    <div class="glass-card p-6 rounded-lg shadow-lg">
-      <h3 class="text-xl font-semibold text-purple-400 mb-2">Campaign Analytics</h3>
-      <p class="text-zinc-300">Track growth and tweak campaigns in real-time.</p>
+    <div class="glass-card">
+      <h3>Campaign Analytics</h3>
+      <p>Track growth and tweak campaigns in real-time.</p>
     </div>
   </section>
 
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("fade-in");
+    });
+  </script>
 </body>
 </html>
-
