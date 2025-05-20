@@ -4,131 +4,104 @@ body {
   margin: 0;
   padding: 0;
   color: #f1f1f1;
-  background: #000;
   opacity: 0;
   transition: opacity 0.6s ease-in-out;
+  background: #000; /* fallback */
 }
 body.fade-in {
   opacity: 1;
 }
 
-/* Chatbot container */
-.chatbot {
+/* Video background */
+video {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 350px;
-  max-height: 600px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+nav h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+nav a {
+  text-decoration: none;
+  color: #e0e0e0;
+  transition: color 0.3s ease;
+}
+nav a:hover {
+  color: #a78bfa; /* purple-400 */
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 6rem 2rem 3rem;
+}
+.hero h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+.hero p {
+  font-size: 1.125rem;
+  color: #d1d5db; /* zinc-300 */
+}
+
+/* Cards Section */
+.cards-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Glassmorphic Card */
+.glass-card {
   background: rgba(255, 255, 255, 0.07);
   border-radius: 20px;
+  padding: 1.5rem;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  color: #e5e7eb;
   transition: transform 0.3s ease;
-  z-index: 1000;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  background-image: url('https://i.pinimg.com/736x/58/79/7c/58797c10937ccb7b64ed6205bf7b227b.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: screen;
 }
-.chatbot:hover {
-  transform: scale(1.03);
+.glass-card:hover {
+  transform: scale(1.05);
 }
-
-/* Chat header */
-.chatbot-header {
-  padding: 1rem 1.5rem;
-  background: rgba(167, 139, 250, 0.3); /* purple-400 translucent */
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: #a78bfa;
-  user-select: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+.glass-card h3 {
+  font-size: 1.25rem;
+  color: #a78bfa; /* purple-400 */
+  margin-bottom: 0.5rem;
 }
-
-/* Chat messages area */
-.chat-messages {
-  flex: 1;
-  padding: 1rem 1.5rem;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-/* Individual message bubbles */
-.message {
-  max-width: 75%;
-  padding: 0.75rem 1rem;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.1);
-  color: #f1f1f1;
-  font-size: 0.95rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  word-wrap: break-word;
-}
-
-/* User message */
-.message.user {
-  align-self: flex-end;
-  background: rgba(167, 139, 250, 0.7);
-  border-color: rgba(167, 139, 250, 0.8);
-  color: #fff;
-}
-
-/* Bot message */
-.message.bot {
-  align-self: flex-start;
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.15);
-  color: #e5e7eb;
-}
-
-/* Input area */
-.chat-input-area {
-  display: flex;
-  padding: 1rem 1.5rem;
-  background: rgba(0, 0, 0, 0.25);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Text input */
-.chat-input-area input[type="text"] {
-  flex: 1;
-  padding: 0.75rem 1rem;
-  border-radius: 15px;
-  border: none;
-  outline: none;
+.glass-card p {
   font-size: 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  color: #f1f1f1;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: background-color 0.3s ease;
-}
-.chat-input-area input[type="text"]::placeholder {
-  color: #d1d5db; /* zinc-300 */
-}
-.chat-input-area input[type="text"]:focus {
-  background: rgba(167, 139, 250, 0.2);
-}
-
-/* Send button */
-.chat-input-area button {
-  margin-left: 0.75rem;
-  background: #a78bfa; /* purple-400 */
-  border: none;
-  padding: 0 1.25rem;
-  border-radius: 15px;
-  color: white;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-.chat-input-area button:hover {
-  background: #8b5cf6; /* purple-500 */
+  color: #e5e7eb; /* zinc-200 */
 }
